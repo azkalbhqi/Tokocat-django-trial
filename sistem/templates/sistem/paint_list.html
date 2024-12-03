@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Paint List</title>
+</head>
+<body>
+    <h1>Paint Products</h1>
+    <a href="{% url 'create_paint' %}">Add New Paint</a>
+    <ul>
+        {% for paint in paints %}
+        <li>
+            {{ paint.brand_name }} - {{ paint.color }} - ${{ paint.price }} - Stock: {{ paint.stock }}
+            <a href="{% url 'update_paint' paint.pk %}">Edit</a>
+            <a href="{% url 'delete_paint' paint.pk %}">Delete</a>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
